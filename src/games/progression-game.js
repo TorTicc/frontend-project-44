@@ -1,5 +1,5 @@
 import main from '../cli.js'
-import { randomNum, request, compare } from '../index.js'
+import { randomNum, request, compare, randomDerivative } from '../index.js'
 
 export default function progressionGame() {
 	let sum = 0
@@ -23,9 +23,7 @@ export default function progressionGame() {
 	console.log(`Congratulations, ${name}`)
 }
 
-function randomDerivative(min, max) {
-	return Math.floor(Math.random() * (max - min) + min)
-}
+
 function arrComp(lengthArr, difference) {
 	const progArr = [randomNum()]
 	for (let i = 0; i < lengthArr; i++) {

@@ -16,5 +16,8 @@ function compare(response, decision, name) {
     `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again ${name}!`,
   );
 }
+function randomDerivative(min, max) {
+	return Math.floor(Math.random() * (max - min) + min)
+}
 
-export { randomNum, request, compare };
+export { randomNum, request, compare, randomDerivative };
