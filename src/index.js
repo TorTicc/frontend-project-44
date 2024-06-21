@@ -1,7 +1,7 @@
 import readlineSync from 'readline-sync';
 
 function randomNum() {
-  return Math.ceil(Math.random() * 15);
+  return Math.floor(Math.random() * 15);
 }
 
 function request() {
