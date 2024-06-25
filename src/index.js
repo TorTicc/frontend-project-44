@@ -9,7 +9,7 @@ function request() {
 }
 function compare(response, decision, name) {
   if (response === decision) {
-    return console.log('Correct');
+    console.log('Correct');
   }
   return console.log(
     `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again ${name}!`,

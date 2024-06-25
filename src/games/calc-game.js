@@ -1,5 +1,5 @@
 import main from '../cli.js';
-import { randomNum, request, compare } from '../index.js';
+import { randomNum, request } from '../index.js';
 
 function getRandomInt() {
   const char = ['+', '-', '*'];
@@ -15,7 +15,7 @@ function calcGame() {
   };
   let sum = 0;
   console.log('What is the result of the expression? ');
-  while (sum !== 3) {
+  while (sum < 3) {
     const num1 = randomNum();
     const num2 = randomNum();
     const index = getRandomInt();
@@ -23,10 +23,13 @@ function calcGame() {
     const response = request();
     const result = obj[index];
     const decision = result(num1, num2);
-    if (compare(+response, decision, name)) {
+    if (+response === decision) {
+      console.log('Correct');
       sum += 1;
     } else {
-      break;
+      return console.log(
+        `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again ${name}!`,
+      );
     }
   }
 

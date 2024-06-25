@@ -1,12 +1,12 @@
-import { randomNum, request, compare } from '../index.js';
+import { randomNum, request } from '../index.js';
 import main from '../cli.js';
 
 function gcd(a, b) {
   let copyA = a;
   let copyB = b;
-  while (b !== 0) {
+  while (copyB !== 0) {
     const temp = copyB;
-    copyB = a % b;
+    copyB = copyA % copyB;
     copyA = temp;
   }
   return copyA;
@@ -22,10 +22,13 @@ function gcdGame() {
     console.log('Question:', num1, num2);
     const response = request();
     const decision = gcd(num1, num2);
-    if (compare(+response, decision, name)) {
+    if (+response === decision) {
+      console.log('Correct');
       sum += 1;
     } else {
-      return false;
+      return console.log(
+        `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again ${name}!`,
+      );
     }
   }
   return console.log(`Congratulations, ${name}`);
