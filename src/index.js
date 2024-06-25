@@ -9,15 +9,16 @@ function request() {
 }
 function compare(response, decision, name) {
   if (response === decision) {
-    console.log('Correct');
-    return true;
+    return console.log('Correct');
   }
-  console.log(
+  return console.log(
     `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again ${name}!`,
   );
 }
 function randomDerivative(min, max) {
-	return Math.floor(Math.random() * (max - min) + min)
+  return Math.floor(Math.random() * (max - min) + min);
 }
 
-export { randomNum, request, compare, randomDerivative };
+export {
+  randomNum, request, compare, randomDerivative,
+};
