@@ -31,7 +31,7 @@ function gcdGame() {
       return wrongAns(response, decision, name);
     }
   }
-  return console.log(`Congratulations, ${name}`);
+  return console.log(`Congratulations, ${name}!`)
 }
 
 export default gcdGame;

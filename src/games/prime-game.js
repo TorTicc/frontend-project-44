@@ -35,5 +35,5 @@ export default function primeGame() {
       return wrongAns(response, decision, name);
     }
   }
-  return console.log(`Congratulations, ${name}`);
+  return console.log(`Congratulations, ${name}!`)
 }

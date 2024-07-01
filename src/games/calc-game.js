@@ -33,7 +33,7 @@ function calcGame() {
     }
   }
 
-  return console.log(`Congratulations, ${name}`);
+  return console.log(`Congratulations, ${name}!`);
 }
 
 export default calcGame;
