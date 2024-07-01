@@ -36,5 +36,5 @@ export default function progressionGame() {
       return wrongAns(response, decision, name);
     }
   }
-  return console.log(`Congratulations, ${name}!`)
+  return console.log(`Congratulations, ${name}!`);
 }

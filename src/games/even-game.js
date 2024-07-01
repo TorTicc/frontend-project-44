@@ -19,5 +19,5 @@ export default function gameEven() {
       return wrongAns(response, decision, name);
     }
   }
-  return console.log(`Congratulations, ${name}!`)
+  return console.log(`Congratulations, ${name}!`);
 }
