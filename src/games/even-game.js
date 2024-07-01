@@ -9,7 +9,7 @@ export default function gameEven() {
   console.log('Answer "yes" if the number is even, otherwise answer "no".');
   while (sum < 3) {
     const number = randomNum();
-    console.log('Question: ', number);
+    console.log('Question:', number);
     const response = request();
     const decision = number % 2 === 0 ? 'yes' : 'no';
     if (compare(response, decision)) {
