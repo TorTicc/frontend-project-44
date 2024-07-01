@@ -1,4 +1,6 @@
-import { randomNum, request } from '../index.js';
+import {
+  compare, wrongAns, truesAns, randomNum, request,
+} from '../index.js';
 import main from '../cli.js';
 
 function gcd(a, b) {
@@ -22,13 +24,11 @@ function gcdGame() {
     console.log('Question:', num1, num2);
     const response = request();
     const decision = gcd(num1, num2);
-    if (+response === decision) {
-      console.log('Correct');
+    if (compare(+response, decision)) {
+      truesAns();
       sum += 1;
     } else {
-      return console.log(
-        `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again ${name}!`,
-      );
+      return wrongAns(response, decision, name);
     }
   }
   return console.log(`Congratulations, ${name}`);

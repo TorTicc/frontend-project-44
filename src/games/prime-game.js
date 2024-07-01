@@ -1,5 +1,11 @@
 import main from '../cli.js';
-import { request, randomDerivative } from '../index.js';
+import {
+  compare,
+  wrongAns,
+  truesAns,
+  request,
+  randomDerivative,
+} from '../index.js';
 
 function isPrime(num) {
   let answer;
@@ -22,13 +28,11 @@ export default function primeGame() {
     console.log(`Question: ${num}`);
     const decision = isPrime(num);
     const response = request();
-    if (response === decision) {
-      console.log('Correct');
+    if (compare(response, decision)) {
+      truesAns();
       sum += 1;
     } else {
-      return console.log(
-        `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again ${name}!`,
-      );
+      return wrongAns(response, decision, name);
     }
   }
   return console.log(`Congratulations, ${name}`);

@@ -1,18 +1,20 @@
 import main from '../cli.js';
-import { randomNum, request } from '../index.js';
+import {
+  compare, wrongAns, truesAns, randomNum, request,
+} from '../index.js';
 
 function getRandomInt() {
   const char = ['+', '-', '*'];
   return char[Math.floor(Math.random() * 3)];
 }
+const obj = {
+  '+': (a, b) => a + b,
+  '-': (a, b) => a - b,
+  '*': (a, b) => a * b,
+};
 
 function calcGame() {
   const name = main();
-  const obj = {
-    '+': (a, b) => a + b,
-    '-': (a, b) => a - b,
-    '*': (a, b) => a * b,
-  };
   let sum = 0;
   console.log('What is the result of the expression? ');
   while (sum < 3) {
@@ -23,13 +25,11 @@ function calcGame() {
     const response = request();
     const result = obj[index];
     const decision = result(num1, num2);
-    if (+response === decision) {
-      console.log('Correct');
+    if (compare(+response, decision)) {
+      truesAns();
       sum += 1;
     } else {
-      return console.log(
-        `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again ${name}!`,
-      );
+      return wrongAns(response, decision, name);
     }
   }
 

@@ -1,4 +1,6 @@
-import { randomNum, request } from '../index.js';
+import {
+  compare, wrongAns, truesAns, randomNum, request,
+} from '../index.js';
 import main from '../cli.js';
 
 export default function gameEven() {
@@ -10,13 +12,11 @@ export default function gameEven() {
     console.log('Question: ', number);
     const response = request();
     const decision = number % 2 === 0 ? 'yes' : 'no';
-    if (response === decision) {
-      console.log('Correct');
+    if (compare(response, decision)) {
+      truesAns();
       sum += 1;
     } else {
-      return console.log(
-        `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again ${name}!`,
-      );
+      return wrongAns(response, decision, name);
     }
   }
   return console.log('Congratulations,', name);

@@ -1,6 +1,11 @@
 import main from '../cli.js';
 import {
-  randomNum, request, randomDerivative,
+  compare,
+  wrongAns,
+  truesAns,
+  randomNum,
+  request,
+  randomDerivative,
 } from '../index.js';
 
 function arrComp(lengthArr, difference) {
@@ -24,13 +29,11 @@ export default function progressionGame() {
     const decision = progArr.splice(randomReplaceChar, 1, '..');
     console.log('Question:', progArr.join(' '));
     const response = request();
-    if (+response === +decision) {
-      console.log('Correct');
+    if (compare(+response, +decision)) {
+      truesAns();
       sum += 1;
     } else {
-      return console.log(
-        `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again ${name}!`,
-      );
+      return wrongAns(response, decision, name);
     }
   }
   return console.log(`Congratulations, ${name}`);
