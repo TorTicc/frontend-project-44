@@ -22,7 +22,7 @@ function wrongAns(response, decision, name) {
   );
 }
 function truesAns() {
-  return console.log('Correct');
+  return console.log('Correct!');
 }
 
 export {
