@@ -18,7 +18,7 @@ function randomDerivative(min, max) {
 }
 function wrongAns(response, decision, name) {
   return console.log(
-    `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again ${name}!`,
+    `'${response}' is wrong answer ;(. Correct answer was '${decision}'.\nLet's try again, ${name}!`,
   );
 }
 function truesAns() {
